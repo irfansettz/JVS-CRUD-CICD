@@ -12,6 +12,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        
+      - name: Change file permissions
+        run: chmod +x mvnw
 
       - name: Build Docker image
         run: |
