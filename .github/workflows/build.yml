@@ -22,6 +22,7 @@ jobs:
 #           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd /home/ikon/JVS-CRUD-CICD
+            git pull
             docker build -t jvs-crud-cicd:v1 .
             docker stop jvs-crud-cicd
             docker rm jvs-crud-cicd
