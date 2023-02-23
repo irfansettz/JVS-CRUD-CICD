@@ -21,7 +21,7 @@ jobs:
         with:
           host: ${{ secrets.EC2_INSTANCE_HOST }}
           username: ${{ secrets.EC2_INSTANCE_NAME }}
-          key: ${{ secrets.EC2_INSTANCE_PASSWORD }}
+          password: ${{ secrets.EC2_INSTANCE_PASSWORD }}
           source: .
           target: /home/ikon/my-app/
 
