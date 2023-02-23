@@ -15,7 +15,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t JVS-CRUD-CICD .
+          docker build -t jvs-crud-cicd .
 
       - name: Transfer files to EC2 instance
         uses: appleboy/scp-action@master
@@ -36,6 +36,6 @@ jobs:
 #           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd /home/ikon/JVS-CRUD-CICD
-            docker stop JVS-CRUD-CICD || true
-            docker rm JVS-CRUD-CICD || true
-            docker run -d -p 80:5000 --name JVS-CRUD-CICD JVS-CRUD-CICD
+            docker stop jvs-crud-cicd || true
+            docker rm jvs-crud-cicd || true
+            docker run -d -p 80:5000 --name jvs-crud-cicd jvs-crud-cicd
