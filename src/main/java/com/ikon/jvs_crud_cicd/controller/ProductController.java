@@ -79,6 +79,6 @@ public class ProductController {
     }
     @GetMapping("/test-message")
     public String testMessage(){
-        return "Welcome to CI/CD project test";
+        return "Welcome to CI/CD project test 01";
     }
 }
