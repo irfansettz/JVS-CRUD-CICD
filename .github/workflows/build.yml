@@ -16,10 +16,9 @@ jobs:
       - name: SSH into EC2 instance and deploy
         uses: appleboy/ssh-action@v0.1.7
         with:
-          host: ec2-52-221-184-201.ap-southeast-1.compute.amazonaws.com
-          username: ikon
-          password: 12345678
-#           key: ${{ secrets.SSH_PRIVATE_KEY }}
+          host: ${{ secrets.EC2_INSTANCE_HOST }}
+          username: ${{ secrets.EC2_INSTANCE_NAME }}
+          password: ${{ secrets.EC2_INSTANCE_PASSWORD }}
           script: |
             cd /home/ikon/JVS-CRUD-CICD
             git pull
