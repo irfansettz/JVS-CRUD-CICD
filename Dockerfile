@@ -1,4 +1,4 @@
-FROM maven:3.9.0-eclipse-temurin-11-alpine AS maven
+FROM maven:3.10.1-eclipse-temurin-11-alpine AS maven
 
 WORKDIR /home/ikon/JVS_CRUD_CICD
 COPY . /usr/src/app
