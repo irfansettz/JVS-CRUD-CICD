@@ -22,16 +22,18 @@ jobs:
         with:
           host: ec2-52-221-184-201.ap-southeast-1.compute.amazonaws.com
           username: ikon
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          password: 12345678
+#           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: "."
           target: "/home/ikon/JVS-CRUD-CICD"
 
       - name: SSH into EC2 instance and deploy
-        uses: appleboy/ssh-action@v3
+        uses: appleboy/ssh-action@v0.1.7
         with:
           host: ec2-52-221-184-201.ap-southeast-1.compute.amazonaws.com
           username: ikon
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          password: 12345678
+#           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd /home/ikon/JVS-CRUD-CICD
             docker stop JVS-CRUD-CICD || true
