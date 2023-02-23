@@ -23,4 +23,6 @@ jobs:
           script: |
             cd /home/ikon/JVS-CRUD-CICD
             docker build -t jvs-crud-cicd:v1 .
+            docker stop jvs-crud-cicd:v1
+            docker rm jvs-crud-cicd:v1
             docker run -d -p 80:5000 --name jvs-crud-cicd jvs-crud-cicd:v1
