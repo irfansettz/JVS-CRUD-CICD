@@ -27,7 +27,7 @@ jobs:
           target: "/home/ikon/JVS-CRUD-CICD"
 
       - name: SSH into EC2 instance and deploy
-        uses: appleboy/ssh-action@v2
+        uses: appleboy/ssh-action@v3
         with:
           host: ec2-52-221-184-201.ap-southeast-1.compute.amazonaws.com
           username: ikon
