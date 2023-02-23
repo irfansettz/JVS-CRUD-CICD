@@ -1,12 +1,12 @@
 FROM maven:3.8.3-openjdk-17-slim AS maven
 
 WORKDIR /home/ikon/JVS_CRUD_CICD
-COPY . /usr/src/app
+COPY . /usr/src/JVS_CRUD_CICD
 
-COPY pom.xml .
+# COPY pom.xml .
 RUN mvn dependency:go-offline
 
-COPY src/ src/
+# COPY src/ src/
 RUN ./mvnw package -DskipTests
 
 FROM openjdk:17-jdk-slim
