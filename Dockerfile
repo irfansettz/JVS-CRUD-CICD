@@ -1,10 +1,22 @@
 FROM maven:3.8.3-openjdk-17-slim AS maven
 
-WORKDIR /home/ikon/JVS_CRUD_CICD
+WORKDIR /usr/src/app
+#COPY . /usr/src/app
 
-COPY . .
+COPY pom.xml .
+RUN mvn dependency:go-offline
 
-EXPOSE 5000
-RUN ./mvnw package -DskipTests
+COPY src/ src/
+RUN mvn package -DskipTests
 
-CMD ["java", "-jar", "/target/JVS_CRUD_CICD-0.0.1-SNAPSHOT.jar"]
+FROM openjdk:17-jdk-slim
+ARG JAR_FILE=JVS_CRUD_CICD-0.0.1-SNAPSHOT.jar
+
+WORKDIR /opt/app/
+
+COPY --from=maven /usr/src/app/target/${JAR_FILE} /opt/app
+
+EXPOSE 8085
+
+ENTRYPOINT ["java", "-jar", "JVS_CRUD_CICD-0.0.1-SNAPSHOT.jar"]
+
