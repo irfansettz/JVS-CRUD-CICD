@@ -16,7 +16,7 @@ WORKDIR /opt/app/
 
 COPY --from=maven /usr/src/app/target/${JAR_FILE} /opt/app
 
-EXPOSE 8085
+EXPOSE 5000
 
 ENTRYPOINT ["java", "-jar", "JVS_CRUD_CICD-0.0.1-SNAPSHOT.jar"]
 
